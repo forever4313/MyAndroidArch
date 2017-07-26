@@ -1,0 +1,111 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+  def globalConfiguration = rootProject.extensions.getByName("ext")
+
+  compileSdkVersion globalConfiguration.getAt("androidCompileSdkVersion")
+  buildToolsVersion globalConfiguration.getAt("androidBuildToolsVersion")
+
+  defaultConfig {
+    minSdkVersion globalConfiguration.getAt("androidMinSdkVersion")
+    targetSdkVersion globalConfiguration.getAt("androidTargetSdkVersion")
+
+    applicationId globalConfiguration.getAt("androidApplicationId")
+    versionCode globalConfiguration.getAt("androidVersionCode")
+    versionName globalConfiguration.getAt("androidVersionName")
+    testInstrumentationRunner globalConfiguration.getAt("testInstrumentationRunner")
+    testApplicationId globalConfiguration.getAt("testApplicationId")
+
+    javaCompileOptions { //  aRouter 中添加
+      annotationProcessorOptions {
+        arguments = [ moduleName : project.getName() ]
+      }
+    }
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_7
+    targetCompatibility JavaVersion.VERSION_1_7
+  }
+
+  packagingOptions {
+    exclude 'LICENSE.txt'
+    exclude 'META-INF/DEPENDENCIES'
+    exclude 'META-INF/ASL2.0'
+    exclude 'META-INF/NOTICE'
+    exclude 'META-INF/LICENSE'
+  }
+
+  lintOptions {
+    quiet true
+    abortOnError false
+    ignoreWarnings true
+    disable 'InvalidPackage'            //Some libraries have issues with this.
+    disable 'OldTargetApi'              //Lint gives this warning but SDK 20 would be Android L Beta.
+    disable 'IconDensities'             //For testing purpose. This is safe to remove.
+    disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
+  }
+
+  signingConfigs {
+    debug {
+      storeFile file('../buildsystem/debug.keystore')
+      storePassword 'android'
+      keyAlias 'androiddebugkey'
+      keyPassword 'android'
+    }
+  }
+
+  buildTypes {
+    debug {
+      signingConfig signingConfigs.debug
+    }
+  }
+}
+
+dependencies {
+  def presentationDependencies = rootProject.ext.presentationDependencies
+  def developmentDependencies = rootProject.ext.developmentDependencies
+
+  compile project(':domain')
+  compile project(':data')
+  compile project(':mvp-lib')
+  compile project(':zxing')
+  compile project(':app-common-lib')
+  compile presentationDependencies.supportCompat
+  apt presentationDependencies.daggerCompiler
+  compile presentationDependencies.dagger
+  // butterknife
+  compile 'com.jakewharton:butterknife:8.5.1'
+  apt 'com.jakewharton:butterknife-compiler:8.5.1'
+
+  // arouter
+  compile 'com.alibaba:arouter-api:1.2.1.1'
+  apt 'com.alibaba:arouter-compiler:1.1.2.1'
+  //图片选择
+  compile 'com.zhihu.android:matisse:0.4.3'
+  // 图片剪裁
+  compile 'com.steelkiwi:cropiwa:1.0.1'
+
+  // bottom bar
+  compile 'com.ashokvarma.android:bottom-navigation-bar:2.0.2'
+  compile presentationDependencies.rxPermission
+  compile presentationDependencies.recyclerView
+  compile presentationDependencies.rxJava
+  compile presentationDependencies.rxAndroid
+  compile presentationDependencies.retrofit
+
+  compile presentationDependencies.okHttpLogging
+  compile presentationDependencies.retrofitConverterGson
+  compile presentationDependencies.retrofitAdapter
+
+  compile presentationDependencies.BRVAH
+  compile presentationDependencies.glide
+
+  provided presentationDependencies.javaxAnnotation
+
+
+
+  //Development
+  compile developmentDependencies.leakCanary
+}

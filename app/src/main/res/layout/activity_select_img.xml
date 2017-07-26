@@ -1,0 +1,27 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context=".view.activity.MainActivity"
+    >
+    <com.k_beta.android.app.view.component.AutoLoadImageView
+            android:id="@+id/img_clip_result"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/iv_cover_height"
+            android:background="@android:color/darker_gray"
+    />
+    <Button
+            android:id="@+id/btn_select_one_and_clip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_text_select_img_one_clip"
+    />
+
+
+
+</LinearLayout>

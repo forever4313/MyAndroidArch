@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">My Android Arch</string>
+  <string name="url">http://www.k_beta.com/</string>
+
+  <string name="activity_title_user_list">用户列表</string>
+  <string name="activity_title_user_details">用户详情</string>
+  <string name="activity_title_scan_qrcode">二维码扫描</string>
+
+  <string name="btn_text_load_data">MVP Demo</string>
+  <string name="btn_text_select_img">选择图片</string>
+  <string name="btn_text_crop_img">剪裁图片</string>
+  <string name="btn_text_qr_scan">二维码扫描(zXing)</string>
+  <string name="btn_text_select_img_one_clip">选择单张图片剪裁（Matisse+Cropiwa）</string>
+  <string name="btn_text_select_multi_img">选择多张图片</string>
+  <string name="error_gif">图片的高或者宽至少应该为 %1$dpx 并且文件不能大于 %2$sM</string>
+  <string name="permission_request_denied">需要您授权才可进行后续操作</string>
+  <string name="btn_text_retry">Retry</string>
+
+  <string name="view_text_email">Email:</string>
+  <string name="view_text_followers">Followers:</string>
+  <string name="view_text_description">Description:</string>
+
+  <string name="string_content_description">Non accessible view</string>
+
+  //Exception messages
+  <string name="exception_message_generic">There was an application error</string>
+  <string name="exception_message_no_connection">There is no internet connection</string>
+  <string name="exception_message_user_not_found">Cannot retrieve user data. Check your internet connection</string>
+</resources>
