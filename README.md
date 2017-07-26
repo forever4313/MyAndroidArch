@@ -20,12 +20,17 @@ https://github.com/sockeqwe/mosby
 
 1.zxing 二维码扫描
 https://github.com/bingoogolapple/BGAQRCode-Android
+
 https://github.com/zxing/zxing
+
 2.Matisse 图片&视频选择
 https://github.com/zhihu/Matisse
+
 3.Arouter 路由
 https://github.com/alibaba/ARouter
+
 4.BottomBar 
 https://github.com/Ashok-Varma/BottomNavigation
+
 5.cropiwa 图片剪裁
 https://github.com/steelkiwi/cropiwa
