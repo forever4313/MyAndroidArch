@@ -6,10 +6,15 @@ Clean Architecture + RxJava2 + Retrofit + okHttp3 + Glide + MVP + Dagger2 + Butt
 ```
 
 ## 主要参考内容如下：
+
 Clean Architecture 
+
 https://github.com/android10/Android-CleanArchitecture
+
 EffectiveAndroidUI
+
 https://github.com/pedrovgs/EffectiveAndroidUI
+
 mosby
 https://github.com/sockeqwe/mosby
 
